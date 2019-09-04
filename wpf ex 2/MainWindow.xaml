@@ -1,0 +1,26 @@
+﻿<Window x:Class="wpf_ex_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_ex_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <local:GameCommands x:Key="Gcommand"/>
+    </Window.Resources>
+    <Grid>
+        <DockPanel>
+            <TextBlock x:Name="formulaBlock" FontSize="50" DockPanel.Dock="Top" Text="{Binding Path=Formula}" HorizontalAlignment="Center" FontStyle="Italic"  />
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Left" >
+                <Button x:Name="firstBtn" Content="{Binding Path=Wrong1}" HorizontalAlignment="Left" Width="250" Height="120" FontSize="30"  Command="{Binding WrongClickCommand,Source={StaticResource Gcommand}}" Click="FirstBtn_Click" />
+                <Button x:Name="secondBtn" Content="{Binding Path=Worng2}" HorizontalAlignment="Left" Margin="0,30,0,0"  FontSize="30" Width="250" Height="120" Command="{Binding WrongClickCommand,Source={StaticResource Gcommand}}" Click="SecondBtn_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" DockPanel.Dock="Right" >
+                <Button x:Name="thirdBtn" Content="{Binding Path=Answer}" HorizontalAlignment="Right" Width="250" Height="120" FontSize="30" Command="{Binding RightClickCommand,Source={StaticResource Gcommand}}" Click="ThirdBtn_Click" />
+                <Button x:Name="furthBtn" Content="{Binding Path=Wrong3}" HorizontalAlignment="Left" Margin="0,30,0,0"  FontSize="30" Width="250" Height="120" Command="{Binding WrongClickCommand,Source={StaticResource Gcommand}}" Click="FurthBtn_Click"/>
+            </StackPanel>
+            <Label x:Name="TimerBlock" Content="30" DockPanel.Dock="Bottom" Margin="0,300,0,0" FontSize="30" HorizontalAlignment="Center"/>
+        </DockPanel>
+    </Grid>
+</Window>
